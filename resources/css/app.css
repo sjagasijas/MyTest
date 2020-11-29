@@ -1,0 +1,64 @@
+ .MainContainer  {
+    margin:50;
+    width:'100%';
+    border-radius:5;
+    }
+      
+    .SubContainer {
+    background-Color:'#FFFFFF';
+    border-radius:10;
+    margin :10px;
+    padding:15;
+    }
+    
+    .cardCol  {
+     paddingLeft:5;
+     paddingRight:5;
+    }
+    
+    .card  {
+    width: 150;
+    height:220;
+    border-radius:10;
+    margin-bottom:25;
+    }
+    
+        
+    .cardImage  {
+    height:110;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    }
+    
+    .cardBody  {
+    padding-bottom:0;
+    padding-Top:10px;
+    padding-Left:20px;
+    padding-Right:20px;
+    align-items:'center';
+    }
+          
+      
+    .title  {
+    font-weight:'bold';
+    font-size:12px;
+    text-align:'center';
+    margin-top:1px;
+    margin-bottom:0;
+    }
+    
+    
+    .subtitle  {
+    font-weight:'normal';
+    font-size:10px;
+    text-align:'center';
+    margin-top:1px;
+    margin-bottom:5;
+    }
+    
+    .songItem  {
+    padding:10px;
+    border-radius:10px;
+    background-color:'#FFFFFF';   
+    }
+      
