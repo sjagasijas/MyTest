@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Song extends Model
 {
     protected $table ='song'; 
+
+    protected $fillable = [
+        'title',
+        'artist',
+    ];
     
      //Primary
      public $primaryKey ='id';

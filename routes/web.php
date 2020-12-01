@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('song','App\Http\Controllers\SongController@index');
-Route::post('song/store','App\Http\Controllers\SongController@store');
-Route::delete('song/delete/{id}','App\Http\Controllers\SongController@destroy');
+Route::get('song','App\Http\Controllers\SongController@index')->name('song.list');
+Route::post('song/store','App\Http\Controllers\SongController@store')->name('song.add');
+Route::post('song/search','App\Http\Controllers\SongController@search')->name('song.search');
+Route::delete('song/delete/{id}','App\Http\Controllers\SongController@destroy')->name('song.delete');
