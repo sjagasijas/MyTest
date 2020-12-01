@@ -100,7 +100,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="MainContainer">
-        <div className="SubContainer">Music</div>
+        <h2 className="SubContainer">Music</h2>
 
         <h2>Featured Songs</h2>
 
@@ -110,7 +110,7 @@ export default class Home extends Component {
           <div className="d-flex flex-row flex-nowrap">
 
               {this.state.items.map((item, index) =>
-                index < 10 ? (
+                index < 20 ? (
                   <Col className="cardCol">
                     <Card className="card card-body">
                       <Card.Img
@@ -138,7 +138,7 @@ export default class Home extends Component {
                             show more 
                           </a>
 
-                          <a className="addToPlaylist"
+                          <a id="addToPlaylist" className="addToPlaylist"
                             onClick={() => {
                               this.linkClick.bind(this);
                               this.onSubmit(item.title,item.artist.name);

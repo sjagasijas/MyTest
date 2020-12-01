@@ -23,10 +23,24 @@ class SongController extends Controller
 
 	public function store(Request $request){
 		//dd($request->title);
-		$song = new Song;
+		$checkIfExist = Song::where('title', '=', $request->title)->first();
+
+		if($checkIfExist  == null){
+		$song = new Song();
 		$song ->title = $request->title;
 		$song ->artist = $request->artist;
-		$song ->save();
+		$song ->order = '';
+		$song ->save(); 
+		}
+
+		/*
+		Song::create(array(
+			'title' => $request->title,
+			'artist'  => $request->artist,
+			'order' => '0000',
+			'created_at' => ''
+		));
+		*/
 
 	}//Store
 

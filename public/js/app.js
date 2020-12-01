@@ -88535,8 +88535,7 @@ var Home = /*#__PURE__*/function (_Component) {
       var song = {
         title: item,
         artist: artist
-      }; //console.log("here" + item);
-
+      };
       axios.post("/song/store", song);
       axios.get("/song").then(function (response) {
         _this3.setState({
@@ -88566,15 +88565,12 @@ var Home = /*#__PURE__*/function (_Component) {
       });
       var search = {
         search: this.state.searchValue
-      }; //console.log(this.state.searchValue);
-
+      };
       axios.post("/song/search", search).then(function (response) {
         _this5.setState({
           song: response.data
         });
-      }); //axios.get("/song/search").then((response) => {
-      //  this.setState({ song: response.data });
-      //});
+      });
     }
   }, {
     key: "linkClick",
@@ -88590,7 +88586,7 @@ var Home = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "MainContainer"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "SubContainer"
       }, "Music"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Featured Songs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "container",
@@ -88598,7 +88594,7 @@ var Home = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex flex-row flex-nowrap"
       }, this.state.items.map(function (item, index) {
-        return index < 10 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        return index < 20 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
           className: "cardCol"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], {
           className: "card card-body"
@@ -88624,6 +88620,7 @@ var Home = /*#__PURE__*/function (_Component) {
             });
           }
         }, "show more"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          id: "addToPlaylist",
           className: "addToPlaylist",
           onClick: function onClick() {
             _this6.linkClick.bind(_this6);
