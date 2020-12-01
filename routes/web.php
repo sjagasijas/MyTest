@@ -21,4 +21,5 @@ Route::get('/', function () {
 Route::get('song','App\Http\Controllers\SongController@index')->name('song.list');
 Route::post('song/store','App\Http\Controllers\SongController@store')->name('song.add');
 Route::post('song/search','App\Http\Controllers\SongController@search')->name('song.search');
+Route::post('song/order', 'App\Http\Controllers\SongController@order')->name('song.order');
 Route::delete('song/delete/{id}','App\Http\Controllers\SongController@destroy')->name('song.delete');

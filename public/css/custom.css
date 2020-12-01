@@ -1,6 +1,11 @@
 h2{
    font-weight: bold; 
 }
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 .modal-dialog, .modal-content{
    width
    : 250px;

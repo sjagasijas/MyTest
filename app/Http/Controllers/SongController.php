@@ -14,7 +14,7 @@ class SongController extends Controller
 
 	public function index(){
 
-		$song = Song::orderBy('id','desc')->get();
+		$song = Song::orderBy('order','asc')->get();
 		return $song;
 
 	}//Index
@@ -34,11 +34,17 @@ class SongController extends Controller
 	public function search(Request $request){
 		
 		$search = $request->search;
-		$song =  DB::table('song')->where('title', 'like', '%'.$search.'%')->orWhere('artist', 'like', '%'.$search.'%')->orderBy('id','desc')->get();
+		$song =  DB::table('song')->where('title', 'like', '%'.$search.'%')->orWhere('artist', 'like', '%'.$search.'%')->orderBy('order','asc')->get();
 		return $song;
 	}//search
 
 
+
+	public function order(Request $request) {
+        foreach($request->get('order') as $id => $order) {
+			$songOrder = DB::table('song')->where(['id'=>$id])->update(['order' => $order]);
+        }
+    } //order
 
 
 	public function destroy($id){

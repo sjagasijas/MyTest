@@ -32,6 +32,7 @@
         <body class="antialiased">
         <div id="body"> </div>
     </body>
+    
     <script src="/js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -78,4 +79,47 @@
             ele.addEventListener('mousedown', mouseDownHandler);
         });
         </script>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+        <script>
+            $( function() {
+        
+            let order = {};
+            $("#sortable").sortable({
+                zIndex: 1,
+                animation: 150,
+                stop: function (event, ui) {
+        
+                    $('.song_order').each(function() {
+                    order[$(this).data('id')] = $(this).index();
+                    }); 
+        
+                    //console.log(order);
+
+                $.ajaxSetup({
+                    headers: {
+                                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                             }
+                    });
+
+        
+                    $.ajax({
+                    url: "{{route('song.order')}}",
+                    type: 'POST',
+                    data: {order: order},
+                    success: function(data){
+                       
+                    }
+                }); 
+
+                    
+            }
+            }); 
+        });
+
+        </script>
+        
 </html>

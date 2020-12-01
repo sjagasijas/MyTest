@@ -60,7 +60,6 @@ export default class Home extends Component {
       title: item,
       artist:artist,
     };
-    //console.log("here" + item);
     axios.post("/song/store", song);
 
     axios.get("/song").then((response) => {
@@ -85,13 +84,10 @@ export default class Home extends Component {
     const search = {
 			search : this.state.searchValue
 		}
-    //console.log(this.state.searchValue);
+
     axios.post("/song/search", search).then((response) => {
        this.setState({ song: response.data });
     });
-    //axios.get("/song/search").then((response) => {
-    //  this.setState({ song: response.data });
-    //});
   }
 
 
@@ -188,10 +184,10 @@ export default class Home extends Component {
         <h2>My Playlist</h2> <input className="form-control" type="text" placeholder="Search" aria-label="Search on Playlist.." value={this.state.searchValue} onChange={this.handleChange}/>
         </div>
         
-        <div className="songItemContainer">
+        <ul id="sortable" className="songItemContainer">
 
         {this.state.song.map((item, index) => (
-          <div className="songItem">
+          <li id={item.id} data-id={item.id} className="songItem song_order">
             <div className="three-col-true">
               <img
                 style={{
@@ -199,7 +195,7 @@ export default class Home extends Component {
                   height: 80,
                   borderRadius:10,
                   display: "cover",
-                }}
+        }}
                 src="https://mdbootstrap.com/img/Others/documentation/1.jpg"
               />
               <div className="songDetails" style={{ paddingTop: 25,}}>
@@ -222,10 +218,10 @@ export default class Home extends Component {
               </div>  
 
             </div>
-          </div>
+          </li>
         ))}
         
-        </div>  
+        </ul>  
 
         </div> 
 
